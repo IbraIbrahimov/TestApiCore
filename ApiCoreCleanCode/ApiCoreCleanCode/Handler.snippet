@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>QuerryHandler</Title>
+    <Author>author</Author>
+    <Shortcut>qhandler</Shortcut>
+    <Description>description</Description>
+    <SnippetTypes>
+      <SnippetType>SurroundsWith</SnippetType>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>name</ID>
+        <Default>value</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="Csharp">
+      <![CDATA[ public class Query : IRequest<${1:returnObject}>
+        {
+
+        }
+
+        public class Handler : IRequestHandler<Query, ${1:returnObject}>
+        {
+            private readonly DataContext _context;
+       
+
+            public Handler(DataContext context)
+            {
+                _context = context;
+             
+            }
+            public async Task<${1:returnObject}> Handle(Query request, CancellationToken cancellationToken)
+            {
+            
+               //handler logic goes here
+            }
+        }]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>
